@@ -15,7 +15,7 @@
    2. Here we added two dependencies one is for Spring-cloud and another one is for Eureka-client.
    3. Apart from that we need to add few other configuration like depenedency management and Spring cloud version.
    4. We need to add few dependencies in Application.yml file -
-   ```
+   ```yaml
    eureka:
      instance:
        prefer-ip-address: true
@@ -25,3 +25,7 @@
        service-url:                                    # this property will tell our microservice ki kis server ke
         defaultZone: http://localhost:8761/eureka     # paas jake register hona hai.
    ```
+6. This Microservice is registerd at below Eureka Server -
+   [Eureka Server](https://github.com/ayushdgupta/SpringBoot3-Eureka-Service-Microservice)
+7. This API is configured with below API-Gateway --  
+   [API Gateway](https://github.com/ayushdgupta/SpringBoot3-APIGateway-Microservice)
