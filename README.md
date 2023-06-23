@@ -29,3 +29,20 @@
    [Eureka Server](https://github.com/ayushdgupta/SpringBoot3-Eureka-Service-Microservice)
 7. This API is configured with below API-Gateway --  
    [API Gateway](https://github.com/ayushdgupta/SpringBoot3-APIGateway-Microservice)
+8. This API is using Config-server to fetch common configuration - [Config-Server](https://github.com/ayushdgupta/SpringBoot3-ConfigServer-Microservice)
+9. Configurations are present on Github - [Common-Configuration](https://github.com/ayushdgupta/SpringBoot3-ConfigFiles-ConfigServer-Microservice)
+
+### Microservice as config-client
+1. To use our microservice as config client we need to add below dependency -
+```groovy
+implementation 'org.springframework.cloud:spring-cloud-starter-config'
+```
+2. Apart from that we need to add few configurations in our application.yaml file -
+```yaml
+spring:
+  config:                             # this propes is used to connect to the config-server
+    import: optional:configserver:http://localhost:9094
+```
+3. By Adding above two configurations our microservice will act as config-client, so now it can fetch any values
+   from config files whatever required internally (eureka server props) or externally (using @Value, System.getProperty()).
+4. @RefreshScope
